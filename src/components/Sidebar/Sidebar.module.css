@@ -1,0 +1,33 @@
+.nav {
+  grid-area: nav;
+  background-color: blueviolet;
+  padding: 10px;
+}
+.item {
+  color: white;
+}
+.item:hover {
+  cursor: pointer;
+}
+.item a {
+  color: white;
+  text-decoration: none;
+}
+
+.item a.active {
+  color: black;
+}
+
+.friends{
+  text-transform: uppercase;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 25px;
+  color: red;
+}
+
+.friendName{
+  display: flex;
+  gap:5px;
+  flex-wrap: wrap;
+}

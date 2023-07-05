@@ -1,0 +1,12 @@
+.usersWrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.usersBoxTwo{
+    display: flex;
+}
+
+.usersPhoto{
+    width: 100px;
+}

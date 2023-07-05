@@ -1,0 +1,24 @@
+
+  .pop{
+    display: inline-block;
+    width: 70px;
+    color: green;
+  }
+   .gold:hover{
+    color: gold;
+  }
+  .pop:active{
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .pop:hover{
+    cursor: pointer;
+  }
+
+  .post img{
+    width: 50px;
+  }
+  .sp{
+    color: blue;
+    margin-left: 3px;
+  }
