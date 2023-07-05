@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Genya10/demo-react-samurai.git/static/css/main.2a846540.css",
+    "main.js": "/Genya10/demo-react-samurai.git/static/js/main.6f9517f7.js",
+    "static/media/user.png": "/Genya10/demo-react-samurai.git/static/media/user.dc76d0e0bb5b63a999e8.png",
+    "index.html": "/Genya10/demo-react-samurai.git/index.html",
+    "main.2a846540.css.map": "/Genya10/demo-react-samurai.git/static/css/main.2a846540.css.map",
+    "main.6f9517f7.js.map": "/Genya10/demo-react-samurai.git/static/js/main.6f9517f7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2a846540.css",
+    "static/js/main.6f9517f7.js"
+  ]
+}
