@@ -8,7 +8,7 @@ import Music from "./components/Music/Music";
 import Setting from "./components/Setting/Setting";
 import UsersContainer from "./components/Users/UsersContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SuperDialogsContainer from "./components/Dialogs/DialogsContainer";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 function App(props) {
   return (
@@ -19,7 +19,7 @@ function App(props) {
         <div className="app-content">
           <Routes>
             <Route path="/profile" element={<Main />} />
-            <Route path="/dialogs/*" element={<SuperDialogsContainer />}/>                                     
+            <Route path="/dialogs/*" element={<DialogsContainer />}/>                                     
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/setting" element={<Setting />} />

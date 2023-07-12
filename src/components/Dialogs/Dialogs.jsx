@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+//import { NavLink } from "react-router-dom";
 import cl from "./Dialogs.module.css";
 import DialogItem from "./DialogItem";
 import MessagesItem from "./MessagesItem";

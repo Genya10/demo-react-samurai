@@ -40,29 +40,3 @@ switch(action.type){
 }
 export default profileReducer;
 
-
-/*const profileReducer=(state=initialState,action)=>{
-  switch(action.type){
-      case ADD_TEXT:{
-          let newPost = {
-              id: 4,
-              message:state.addNewText,
-              like: 0,
-            };
-            let stateCopy={...state};
-            stateCopy.postData=[...state.postData];
-            stateCopy.postData.push(newPost);
-            stateCopy.addNewText='';
-            //state.postData.push(newPost);
-            //state.addNewText = "";
-            return stateCopy;
-            }
-            case UPDATE_NEW_POST:{
-              let stateCopy={...state};
-              stateCopy.addNewText = action.newText;
-              return stateCopy;
-            }
-              default:
-                  return state;
-  }
-  }*/

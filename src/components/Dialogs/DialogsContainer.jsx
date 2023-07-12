@@ -23,9 +23,11 @@ let mapDispatchToProps = (dispatch) => {
   };
 };
 
-const SuperDialogsContainer = connect(
+/*const DialogsContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Dialogs);
 
-export default SuperDialogsContainer;
+export default DialogsContainer;*/
+
+export default connect(mapStateToProps,mapDispatchToProps)(Dialogs);
