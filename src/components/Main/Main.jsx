@@ -8,7 +8,7 @@ const Main = (props) => {
 
   return (
     <div className={cl.main}>
-      <ProfileInfo/>
+      <ProfileInfo profile={props.profile}/>
       <SuperMyPostsContainer />
     </div>
   );

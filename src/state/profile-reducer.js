@@ -1,12 +1,9 @@
-import { type } from "@testing-library/user-event/dist/type";
 
 const ADD_TEXT = "ADD-TEXT";
 const UPDATE_NEW_POST = "UPDATE-NEW-POST";
-export const addTextCreator = () => ({ type: ADD_TEXT });
-export const updateNewPostCreator = (text) => ({
-  type: UPDATE_NEW_POST,
-  newText: text,
-});
+const SET_USER_PROFILE="SET_USER_PROFILE";
+
+
 
 let initialState={
   postData: [
@@ -15,6 +12,7 @@ let initialState={
     { id: 3, message: "Everyone,hi!", like: 8 },
   ],
   addNewText: "it-kamasutra",
+  profile:null,
 }
 
 const profileReducer=(state=initialState,action)=>{
@@ -34,9 +32,23 @@ switch(action.type){
             addNewText:action.newText,
             }
           }
+          case SET_USER_PROFILE:{
+            return{
+              ...state,profile:action.profile
+            }
+          }
             default:
                 return state;
 }
 }
+
+export const addTextCreator = () => ({ type: ADD_TEXT });
+export const setUserProfile=(profile)=>({type:"SET_USER_PROFILE",profile});
+export const updateNewPostCreator = (text) => ({
+  type: UPDATE_NEW_POST,
+  newText: text,
+});
+
+
 export default profileReducer;
 

@@ -2,13 +2,13 @@
 import "./App.css";
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Main from "./components/Main/Main";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Setting from "./components/Setting/Setting";
 import UsersContainer from "./components/Users/UsersContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import MainContainer from "./components/Main/Main Container";
 
 function App(props) {
   return (
@@ -18,7 +18,10 @@ function App(props) {
         <Sidebar />
         <div className="app-content">
           <Routes>
-            <Route path="/profile" element={<Main />} />
+            {/*<Route path="/profile/:userId?" element={<MainContainer />} />*/}
+            
+            <Route path="/profile/*" element={<MainContainer />} />
+            <Route path={"profile:userId"} element={<MainContainer />} />
             <Route path="/dialogs/*" element={<DialogsContainer />}/>                                     
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />

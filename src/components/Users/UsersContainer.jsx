@@ -1,10 +1,11 @@
 import React from "react";
 import { connect,Connect } from "react-redux";
-import { followAC,unfollowAC,setUsersAC,setCurrentPageAC,setUsersTotalCountAC,toggleIsFetchingAC } from "../../state/users-reducer";
+import { follow,unfollow,setUsers,setCurrentPage,
+  setUsersTotalCount,toggleIsFetching } from "../../state/users-reducer";
 import Users from "./Users";
 import axios from "axios";
 import preloader from "../../assets/images/loading.gif"
-import Preloader from "../common/Preloader/Preloader";
+//import Preloader from "../common/Preloader/Preloader";
 
 class UsersComponent extends React.Component {
   componentDidMount(){
@@ -14,7 +15,7 @@ class UsersComponent extends React.Component {
         .then((response) => {
           this.props.toggleIsFetching(false);
           this.props.setUsers(response.data.items);
-          this.props.setTotalUsersCount(response.data.totalCount);
+          this.props.setUsersTotalCount(response.data.totalCount);
         });
   }
 
@@ -26,7 +27,7 @@ class UsersComponent extends React.Component {
     .then((response) => {
       this.props.toggleIsFetching(false);
       this.props.setUsers(response.data.items);
-      this.props.setTotalUsersCount(response.data.totalCount);
+      this.props.setUsersTotalCount(response.data.totalCount);
     });
   }
 
@@ -56,6 +57,12 @@ let mapStateToProps=(state)=>{
     //isFetching:state.userPage.isFetching,
   }
 }
+
+export default connect(mapStateToProps,{ 
+  follow,unfollow,setUsers,setCurrentPage, setUsersTotalCount,toggleIsFetching,})
+  (UsersComponent);
+
+/*
 let mapDispatchToProps=(dispatch)=>{
   return{
   follow:(userId)=>{
@@ -79,4 +86,5 @@ let mapDispatchToProps=(dispatch)=>{
 
   }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(UsersComponent);
+export default connect(mapStateToProps,mapDispatchToProps)(UsersComponent);*/
+

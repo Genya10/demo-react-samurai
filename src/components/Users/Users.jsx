@@ -1,6 +1,7 @@
 import React from "react";
 import cl from "./Users.module.css";
 import userPhoto from "../../assets/images/user.png";
+import { NavLink } from "react-router-dom";
 
 let Users=(props)=>{
 
@@ -37,39 +38,32 @@ let Users=(props)=>{
         <div className={cl.pages}>
         {pages.map( p => {
           return <span className={cl.page}><span className={props.currentPage === p && cl.selectedPage}
-           onClick={ (e) => {props.onPageChanged(p)}}>{p}</span></span> 
-       
+           onClick={ (e) => {props.onPageChanged(p)}}>{p}</span></span>       
         })}
-  </div>
-  { 
-        props.users.map((u) => (
+  </div>  
+        { props.users.map((u) => (
           <div key={u.id}>
             <div className={cl.usersWrapper}>
               <div className={cl.usersBoxOne}>
                 <div>
-                  <img
-                    src={u.photos.small != null ? u.photos.small : userPhoto}
-                    className={cl.usersPhoto}
-                  />
+                 <NavLink to={'/profile'}>                
+                   <img   src={u.photos.small != null ? u.photos.small : userPhoto}
+                    className={cl.usersPhoto}/>    
+                 </NavLink>
                 </div>
                 <div>
                   {u.followed ? (
                     <button
                       onClick={() => {
-                        props.unfollow(u.id);
-                      }}
-                    >
+                        props.unfollow(u.id);}}>                    
                       Unfollow
                     </button>
                   ) : (
                     <button
                       onClick={() => {
-                        props.follow(u.id);
-                      }}
-                    >
+                        props.follow(u.id);}}>                                        
                       Follow
-                    </button>
-                  )}
+                    </button>)}                 
                 </div>
               </div>
               <div className={cl.usersBoxTwo}>
