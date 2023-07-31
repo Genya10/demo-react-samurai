@@ -6,3 +6,12 @@
     width: 30px;
     padding: 3px;
   }
+
+  .loginBlock{
+    float: right;
+  }
+
+  .loginBlock a{
+     color:black;
+    text-decoration: none;
+  }

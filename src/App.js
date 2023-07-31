@@ -1,6 +1,6 @@
 //import logo from "./logo.svg";
 import "./App.css";
-import Header from "./components/Header/Header";
+import HeaderContainer from "./components/Header/HeaderContainer";
 import Sidebar from "./components/Sidebar/Sidebar";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
@@ -14,12 +14,11 @@ function App(props) {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
-        <Header />
+        <HeaderContainer />
         <Sidebar />
         <div className="app-content">
           <Routes>
-            {/*<Route path="/profile/:userId?" element={<MainContainer />} />*/}
-            
+            {/*<Route path="/profile/:userId?" element={<MainContainer />} />*/}            
             <Route path="/profile/*" element={<MainContainer />} />
             <Route path={"profile:userId"} element={<MainContainer />} />
             <Route path="/dialogs/*" element={<DialogsContainer />}/>                                     
