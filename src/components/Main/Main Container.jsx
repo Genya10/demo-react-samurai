@@ -1,35 +1,9 @@
 import React, { useEffect } from "react";
 import Main from "./Main";
-import axios from "axios";
 import { connect } from "react-redux";
 import { setUserProfile } from "../../state/profile-reducer";
 import { useParams } from "react-router-dom";
-
-/*function MainContainer(props){
-
-  const {userId}=useParams();
-    let currUserId = userId || 2
-  useEffect(()=>{
-    axios
-    .get(`https://social-network.samuraijs.com/api/1.0/profile/`+ currUserId)
-    .then((response) => {
-      props.setUserProfile(response.data);
-    });
-  },[userId]);
-    
-      return(
-        <div>
-      <Main profile={props.profile}/>
-      </div>
-      );
-      }
-  
-  
-  let mapStateToProps=(state)=>({
-   profile:state.profilePage.profile
-  });
-  
-  export default connect(mapStateToProps,{setUserProfile})( MainContainer) ;*/
+import { usersAPI } from "../../api/api";
 
   export function withRouter(Children){
     return(props)=>{
@@ -46,8 +20,7 @@ import { useParams } from "react-router-dom";
       if(!userId){
        userId=2;
      }
-      axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/`+userId)
+      usersAPI.getProfile(userId)
       .then((response) => {
         this.props.setUserProfile(response.data);
       });
