@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Main from "./Main";
 import { connect } from "react-redux";
 import { getUsersProfile } from "../../state/profile-reducer";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { usersAPI } from "../../api/api";
 
   export function withRouter(Children){
@@ -21,13 +21,12 @@ import { usersAPI } from "../../api/api";
        userId=2;
      }
      this.props.getUsersProfile(userId);
-     /* usersAPI.getProfile(userId)
-      .then((response) => {
-        this.props.setUserProfile(response.data);
-      });*/
     }
     
       render(){
+        
+   if(!this.props.isAuth) return <Navigate to="/login"/>
+
         return(
         <Main {...this.props} profile={this.props.profile}/>
         )
@@ -35,7 +34,8 @@ import { usersAPI } from "../../api/api";
     };
     
     let mapStateToProps=(state)=>({
-     profile:state.profilePage.profile
+     profile:state.profilePage.profile,
+     isAuth:state.auth.isAuth
     });
     
     let WithUrlDataContainerComponent= withRouter(MainContainer);
