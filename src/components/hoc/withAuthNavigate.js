@@ -1,5 +1,10 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
+import { connect } from "react-redux";
+
+let mapStateForNavigate = (state) => ({
+    isAuth: state.auth.isAuth,
+  });
 
 export const withAuthNavigate=(Component)=>{
 
@@ -9,5 +14,6 @@ export const withAuthNavigate=(Component)=>{
             return <Component {...this.props} />
         }
     }
-    return NavigateComponent;
+    let ConnectAuthNavigateComponent=connect(mapStateForNavigate)(NavigateComponent)
+    return ConnectAuthNavigateComponent;
 }

@@ -5,6 +5,8 @@ import { follow,unfollow,setCurrentPage,
    from "../../state/users-reducer";
 import Users from "./Users";
 import preloader from "../../assets/images/loading.gif";
+import { withAuthNavigate } from "../hoc/withAuthNavigate";
+import { compose } from "redux";
 //import Preloader from "../common/Preloader/Preloader";
 
 class UsersComponent extends React.Component {
@@ -44,11 +46,13 @@ let mapStateToProps=(state)=>{
     //isFetching:state.userPage.isFetching,
   }
 }
-
+/*
 export default connect(mapStateToProps, 
   {follow,unfollow,setCurrentPage, toggleFollowingProgress, 
-  getUsers})(UsersComponent);
+  getUsers})(UsersComponent);*/
   
-
-
+ export default compose(connect(mapStateToProps, 
+  {follow,unfollow,setCurrentPage, toggleFollowingProgress, 
+  getUsers}), withAuthNavigate)(UsersComponent);
+ 
 
