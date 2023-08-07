@@ -23,7 +23,7 @@ unfollow(userId){
 },
 
 getProfile(userId){   
-    return instance.get(`profile/`+userId)
+    return instance.get(`profile/`+ userId)
 }
 }
 

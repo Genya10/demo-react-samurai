@@ -12,7 +12,7 @@ let initialState={
     { id: 2, message: "Yo,Yo,bro", like: 25 },
     { id: 3, message: "Everyone,hi!", like: 8 },
   ],
-  addNewText: "it-kamasutra",
+  addNewText: "it-frontend",
   profile:null,
 }
 
@@ -45,14 +45,12 @@ switch(action.type){
 
 export const addTextCreator = () => ({ type: ADD_TEXT });
 export const setUserProfile=(profile)=>({type:"SET_USER_PROFILE",profile});
-
 export const getUsersProfile=(userId)=>(dispatch)=>{
   usersAPI.getProfile(userId)
       .then((response) => {
         dispatch(setUserProfile(response.data));
       });
 }
-
 export const updateNewPostCreator = (text) => ({
   type: UPDATE_NEW_POST,
   newText: text,

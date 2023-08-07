@@ -8,7 +8,6 @@ const ProfileInfo =(props)=>{
 if(!props.profile){
     return <div>JUST A MINUTE</div>
 }
-
     return(
         <div className={cl.profileInfo}>
 {/* <div>
