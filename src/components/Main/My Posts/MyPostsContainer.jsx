@@ -1,10 +1,10 @@
-import React from "react";
+
 import {
   addTextCreator,
   updateNewPostCreator,
 } from "../../../state/profile-reducer";
 import MyPosts from "./MyPosts";
-import { connect, Connect } from "react-redux";
+import { connect } from "react-redux";
 
 let mapStateToProps=(state)=>{
   return {
@@ -24,6 +24,6 @@ let mapDispatchToProps=(dispatch)=>{
 }
 }
 
-const SuperMyPostsContainer=connect(mapStateToProps,mapDispatchToProps)(MyPosts);
+const MyPostsContainer=connect(mapStateToProps,mapDispatchToProps)(MyPosts);
 
-export default SuperMyPostsContainer;
+export default MyPostsContainer;

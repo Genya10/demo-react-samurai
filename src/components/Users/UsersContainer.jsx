@@ -46,10 +46,6 @@ let mapStateToProps=(state)=>{
     //isFetching:state.userPage.isFetching,
   }
 }
-/*
-export default connect(mapStateToProps, 
-  {follow,unfollow,setCurrentPage, toggleFollowingProgress, 
-  getUsers})(UsersComponent);*/
   
  export default compose(connect(mapStateToProps, 
   {follow,unfollow,setCurrentPage, toggleFollowingProgress, 
