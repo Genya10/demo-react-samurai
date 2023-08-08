@@ -18,7 +18,7 @@ class MainContainer extends React.Component {
     
     let userId = this.props.match.params.userId;
     if (!userId) {
-      userId = 1049;
+      userId = 29717;
     }
     this.props.getUsersProfile(userId);
     this.props.getUserStatus(userId);
@@ -36,7 +36,15 @@ let mapStateToProps = (state) => ({
   status:state.profilePage.status
 });
 
-let WithUrlDataContainerComponent = withRouter(AuthNavigateComponent);
+//let WithUrlDataContainerComponent = withRouter(AuthNavigateComponent);
 
-export default compose(connect(mapStateToProps, { getUsersProfile,getUserStatus,updateStatus }),
-withAuthNavigate)(WithUrlDataContainerComponent);
+/*export default compose(
+  connect(mapStateToProps, { getUsersProfile,getUserStatus,updateStatus }),
+withAuthNavigate)(WithUrlDataContainerComponent);*/
+
+
+
+export default compose(
+  connect(mapStateToProps, { getUsersProfile,getUserStatus,updateStatus }),
+withRouter)(MainContainer);
+ 

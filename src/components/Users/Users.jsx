@@ -49,7 +49,7 @@ let Users=(props)=>{
             <div className={cl.usersWrapper}>
               <div className={cl.usersBoxOne}>
                 <div>
-                 <NavLink to={'/profile'}>                
+                 <NavLink to={'/profile/'+ u.id}>                
                    <img   src={u.photos.small != null ? u.photos.small : userPhoto}
                     className={cl.usersPhoto}/>    
                  </NavLink>
