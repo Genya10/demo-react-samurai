@@ -7,7 +7,8 @@ const Main = (props) => {
 
   return (
     <div className={cl.main}>
-      <ProfileInfo profile={props.profile}/>
+      <ProfileInfo profile={props.profile}
+      status={props.status} updateStatus={props.updateStatus}/>
       <MyPostsContainer />
     </div>
   );

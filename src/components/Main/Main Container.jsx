@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Main from "./Main";
 import { connect } from "react-redux";
-import { getUsersProfile } from "../../state/profile-reducer";
+import { getUsersProfile,getUserStatus,updateStatus } from "../../state/profile-reducer";
 import { withAuthNavigate } from "../hoc/withAuthNavigate";
 import { useParams } from "react-router-dom";
 import { compose } from "redux";
@@ -18,12 +18,14 @@ class MainContainer extends React.Component {
     
     let userId = this.props.match.params.userId;
     if (!userId) {
-      userId = 2;
+      userId = 1049;
     }
     this.props.getUsersProfile(userId);
+    this.props.getUserStatus(userId);
   }
   render() {
-    return <Main {...this.props} profile={this.props.profile} />;
+    return <Main {...this.props} profile={this.props.profile}
+    status={this.props.status} updateStatus={this.props.updateStatus}/>;
   }
 }
 
@@ -31,9 +33,10 @@ let AuthNavigateComponent = withAuthNavigate(MainContainer);
 
 let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
+  status:state.profilePage.status
 });
 
 let WithUrlDataContainerComponent = withRouter(AuthNavigateComponent);
 
-export default compose(connect(mapStateToProps, { getUsersProfile }),
+export default compose(connect(mapStateToProps, { getUsersProfile,getUserStatus,updateStatus }),
 withAuthNavigate)(WithUrlDataContainerComponent);
