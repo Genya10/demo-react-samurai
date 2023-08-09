@@ -33,14 +33,14 @@ switch(action.type){
             addNewText:action.newText,
             }
           }
+           case SET_USER_STATUS:{
+            return{
+              ...state,status:action.status
+            }
+          }
           case SET_USER_PROFILE:{
             return{
               ...state,profile:action.profile
-            }
-          }
-          case SET_USER_STATUS:{
-            return{
-              ...state,status:action.status
             }
           }
             default:
@@ -61,9 +61,11 @@ export const getUsersProfile=(userId)=>(dispatch)=>{
 export const getUserStatus=(userId)=>(dispatch)=>{
   profileAPI.getStatus(userId)
       .then((response) => {
+        
         dispatch(setUserStatus(response.data));
       });
     }
+
     export const updateStatus=(status)=>(dispatch)=>{
       profileAPI.updateStatus(status)
           .then((response) => {
@@ -72,6 +74,7 @@ export const getUserStatus=(userId)=>(dispatch)=>{
           }
           });
         }
+
 export const updateNewPostCreator = (text) => ({
   type: UPDATE_NEW_POST,
   newText: text,

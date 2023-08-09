@@ -17,8 +17,7 @@ if(!props.profile){
         <img src={props.profile.photos.large}/>
         <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
         <div>{props.profile.aboutMe}</div>
-        <div>{props.profile.contacts.github}</div>
-        
+        <div>{props.profile.contacts.github}</div>       
     </div>
         </div>
     )
