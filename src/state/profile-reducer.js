@@ -1,7 +1,6 @@
 import { usersAPI,profileAPI } from "../api/api";
 
 const ADD_TEXT = "ADD-TEXT";
-const UPDATE_NEW_POST = "UPDATE-NEW-POST";
 const SET_USER_PROFILE="SET_USER_PROFILE";
 const SET_USER_STATUS="GET_USER_STATUS";
 
@@ -11,7 +10,6 @@ let initialState={
     { id: 2, message: "Yo,Yo,bro", like: 25 },
     { id: 3, message: "Everyone,hi!", like: 8 },
   ],
-  addNewText: "it-frontend",
   profile:null,
   status:"",
 }
@@ -23,16 +21,10 @@ switch(action.type){
           ...state,
           addNewText:'',
           postData:[...state.postData,{id: 4,
-            message:state.addNewText,
+            message:action.addNewText,
             like: 0}],          
          };
         }
-          case UPDATE_NEW_POST:{
-            return {
-              ...state,
-            addNewText:action.newText,
-            }
-          }
            case SET_USER_STATUS:{
             return{
               ...state,status:action.status
@@ -48,7 +40,7 @@ switch(action.type){
 }
 }
 
-export const addTextCreator = () => ({ type: ADD_TEXT });
+export const addTextCreator = (addNewText) => ({ type: ADD_TEXT,addNewText });
 export const setUserProfile=(profile)=>({type:"SET_USER_PROFILE",profile});
 export const setUserStatus=(status)=>({type:"SET_USER_STATUS",status});
 
@@ -74,11 +66,6 @@ export const getUserStatus=(userId)=>(dispatch)=>{
           }
           });
         }
-
-export const updateNewPostCreator = (text) => ({
-  type: UPDATE_NEW_POST,
-  newText: text,
-});
 
 
 export default profileReducer;
