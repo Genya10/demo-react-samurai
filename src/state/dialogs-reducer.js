@@ -1,7 +1,6 @@
 
 const SEND_MESSAGE = "SEND-MESSAGE";
 
-
 let initialState = {
   dialogsData: [
     { id: 1, name: "Vasya" },
