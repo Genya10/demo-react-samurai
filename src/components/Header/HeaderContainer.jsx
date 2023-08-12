@@ -4,6 +4,7 @@ import Header from "./Header";
 import axios from "axios";
 import { authAPI } from "../../api/api";
 import { getAuthUserData } from "../../state/auth-reducer";
+import { logout } from "../../state/auth-reducer";
 
 class HeaderContainer extends React.Component{
     componentDidMount(){
@@ -19,5 +20,5 @@ const mapStateToProps=(state)=>({
   login:state.auth.login,
 });
 
-export default connect(mapStateToProps,{getAuthUserData})(HeaderContainer);
+export default connect(mapStateToProps,{getAuthUserData,logout})(HeaderContainer);
 
