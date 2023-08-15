@@ -5,6 +5,7 @@ import { required,maxLengthCreator } from "../../utils/validators/validator";
 import { login } from "../../state/auth-reducer";
 import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
+import cl from "./Login.module.css";
 
 const maxLength40= maxLengthCreator(40);
 
@@ -18,13 +19,17 @@ const maxLength40= maxLengthCreator(40);
        validate={[required,maxLength40]}/></div>
        <div><Field type="checkbox" name={'rememberMe'}  component={Input}
        validate={[required]} />remember me</div>
+
+      {props.error && <div className={cl.formError}>
+        {props.error}</div>}
+        
        <div><button>Login</button></div>
        </form>   
         )
         }
     
 
-const LoginReduxForm = reduxForm({form:'login'})(LoginForm)
+const LoginReduxForm = reduxForm({form:'login'})(LoginForm);
 
 const Login=(props)=>{
     const onSubmit=(formData)=>{

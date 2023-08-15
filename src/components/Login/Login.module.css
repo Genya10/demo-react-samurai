@@ -1,0 +1,9 @@
+.formError{
+    width: 250px;
+    border: 2px solid red;
+    padding: 3px;
+    color:black;
+    font-size: 700;
+    text-transform: uppercase;
+    text-align: center;
+}
