@@ -1,5 +1,5 @@
 import React from "react";
-import { connect,Connect } from "react-redux";
+import { connect } from "react-redux";
 import { follow,unfollow,setCurrentPage,
  toggleFollowingProgress,getUsers }
    from "../../state/users-reducer";
@@ -7,6 +7,8 @@ import Users from "./Users";
 import preloader from "../../assets/images/loading.gif";
 import { withAuthNavigate } from "../hoc/withAuthNavigate";
 import { compose } from "redux";
+import { getPageSize,getUsersSelector,getTotalUsersCount,
+  getCurrentPage,getFollowingInProgress,getIsFetching } from "../../state/selectorsUsers";
 //import Preloader from "../common/Preloader/Preloader";
 
 class UsersComponent extends React.Component {
@@ -36,7 +38,7 @@ return <>
 }
 }
 
-let mapStateToProps=(state)=>{
+/*let mapStateToProps=(state)=>{
   return{    
     users:state.usersPage.users,
     pageSize:state.usersPage.pageSize,
@@ -44,6 +46,17 @@ let mapStateToProps=(state)=>{
     currentPage:state.usersPage.currentPage,
    followingInProgress:state.usersPage.followingInProgress,
     //isFetching:state.userPage.isFetching,
+  }
+}*/
+
+let mapStateToProps=(state)=>{
+  return{    
+    users:getUsersSelector(state),
+    pageSize:getPageSize(state),
+    totalUsersCount:getTotalUsersCount(state),
+    currentPage:getCurrentPage(state),
+   followingInProgress:getFollowingInProgress(state),
+    //isFetching:getIsFetching(state),
   }
 }
   
