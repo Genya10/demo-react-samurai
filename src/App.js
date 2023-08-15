@@ -10,16 +10,24 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import MainContainer from "./components/Main/Main Container";
 import Login from "./components/Login/Login";
+import { Component } from "react";
+import { getAuthUserData } from "./state/auth-reducer";
+import { connect } from "react-redux";
+import { withRouter } from "./components/Main/Main Container";
+import { compose } from "redux";
 
-function App(props) {
+class App extends Component {
+  componentDidMount(){
+    this.props.getAuthUserData();
+}
+  render(){
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <HeaderContainer />
         <Sidebar />
         <div className="app-content">
-          <Routes>
-            {/*<Route path="/profile/:userId?" element={<MainContainer />} />*/}            
+          <Routes>            
             <Route path="/profile/*" element={<MainContainer />} />
             <Route path={"profile/:userId"} element={<MainContainer />} />
             <Route path="/dialogs/*" element={<DialogsContainer />}/>                                     
@@ -34,9 +42,36 @@ function App(props) {
     </BrowserRouter>
   );
 }
+}
 
-export default App;
+export default compose(
+  withRouter,
+ connect( null,{getAuthUserData}))(App);
 
-//store={props.store}
+/*
+function App(props) {
+  return (
+    <BrowserRouter>
+      <div className="app-wrapper">
+        <HeaderContainer />
+        <Sidebar />
+        <div className="app-content">
+          <Routes>      
+            <Route path="/profile/*" element={<MainContainer />} />
+            <Route path={"profile/:userId"} element={<MainContainer />} />
+            <Route path="/dialogs/*" element={<DialogsContainer />}/>                                     
+            <Route path="/news" element={<News />} />
+            <Route path="/music" element={<Music />} />
+            <Route path="/setting" element={<Setting />} />
+            <Route path="/users" element={<UsersContainer/>}/>
+            <Route path="/login" element={<Login/>}/>
+          </Routes>
+        </div>
+      </div>
+    </BrowserRouter>
+  );
+}*/
 
-//Sidebar----state={props.state.sidebar}
+
+//export default App;
+
