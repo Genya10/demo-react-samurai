@@ -18,7 +18,10 @@ class MainContainer extends React.Component {
     
     let userId = this.props.match.params.userId;
     if (!userId) {
-      userId = 1049;//this.props.authorizeUserId;
+      userId = this.props.authorizeUserId;
+     /* if(!userId){
+        this.props.navigate.push('/login');
+      }*/
     }
     this.props.getUsersProfile(userId);
      this.props.getUserStatus(userId);

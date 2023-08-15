@@ -49,6 +49,6 @@ let mapStateToProps=(state)=>{
   
  export default compose(connect(mapStateToProps, 
   {follow,unfollow,setCurrentPage, toggleFollowingProgress, 
-  getUsers}), withAuthNavigate)(UsersComponent);
+  getUsers}))(UsersComponent);
  
 

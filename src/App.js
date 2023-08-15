@@ -11,16 +11,19 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import MainContainer from "./components/Main/Main Container";
 import Login from "./components/Login/Login";
 import { Component } from "react";
-import { getAuthUserData } from "./state/auth-reducer";
 import { connect } from "react-redux";
 import { withRouter } from "./components/Main/Main Container";
 import { compose } from "redux";
+import { initializeApp } from "./state/app-reducer";
 
 class App extends Component {
   componentDidMount(){
-    this.props.getAuthUserData();
+    this.props.initializeApp();
 }
   render(){
+    if(!this.props.initializer){
+      return <div>Preloader</div>
+    }
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -44,9 +47,13 @@ class App extends Component {
 }
 }
 
+const mapStateToProps=(state)=>({
+  initializer:state.app.initializer
+})
+
 export default compose(
   withRouter,
- connect( null,{getAuthUserData}))(App);
+ connect( mapStateToProps,{initializeApp}))(App);
 
 /*
 function App(props) {
