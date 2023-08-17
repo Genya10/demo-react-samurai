@@ -45,7 +45,7 @@ console.log('render')
         {this.state.editMode &&
         <div>
             <input onChange={this.onStatusChange} autoFocus={true} 
-            onBlur={this.deactivateEditMode} value={this.props.status}/>
+            onBlur={this.deactivateEditMode.bind(this)} value={this.props.status}/>
         </div>
         }
     </div> 

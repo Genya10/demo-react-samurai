@@ -2,7 +2,7 @@ import { usersAPI,profileAPI } from "../api/api";
 
 const ADD_TEXT = "ADD-TEXT";
 const SET_USER_PROFILE="SET_USER_PROFILE";
-const SET_USER_STATUS="GET_USER_STATUS";
+const SET_USER_STATUS="SET_USER_STATUS";
 
 let initialState={
   postData: [

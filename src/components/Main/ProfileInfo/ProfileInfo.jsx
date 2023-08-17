@@ -1,7 +1,7 @@
 import React from "react";
 import cl from "./ProfileInfo.module.css";
 import ProfileStatus from "./ProfileStatus";
-
+import ProfileStatusHooks from "./ProfileStatusHook";
   
 const ProfileInfo =(props)=>{ 
 
@@ -15,7 +15,7 @@ if(!props.profile){
     </div>*/}
     <div className={cl.descriptionBlock}>
         <img src={props.profile.photos.large}/>
-        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+        <ProfileStatusHooks status={props.status} updateStatus={props.updateStatus}/>
         <div>{props.profile.aboutMe}</div>
         <div>{props.profile.contacts.github}</div>       
     </div>
