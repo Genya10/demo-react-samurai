@@ -7,8 +7,11 @@ import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-let rerender = (state) => {
-  
+setInterval(()=>{
+  store.dispatch({type:"FAKE"});
+},1000);
+
+let rerender = (state) => { 
   root.render(
 <Provider store={store}>
     <App  />

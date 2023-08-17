@@ -27,12 +27,13 @@ class MainContainer extends React.Component {
      this.props.getUserStatus(userId);
   }
   render() {
+    //console.log('Render main')
     return <Main {...this.props} profile={this.props.profile}
     status={this.props.status} updateStatus={this.props.updateStatus}/>;
   }
 }
 
-let mapStateToProps = (state) => ({
+let mapStateToProps = (state) => ( {
   profile: state.profilePage.profile,
   status:state.profilePage.status,
   authorizeUserId:state.auth.userId,

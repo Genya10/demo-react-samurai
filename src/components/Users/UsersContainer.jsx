@@ -55,7 +55,7 @@ let mapStateToProps=(state)=>{
     pageSize:getPageSize(state),
     totalUsersCount:getTotalUsersCount(state),
     currentPage:getCurrentPage(state),
-   followingInProgress:getFollowingInProgress(state),
+    followingInProgress:getFollowingInProgress(state),
     //isFetching:getIsFetching(state),
   }
 }

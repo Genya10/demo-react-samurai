@@ -22,7 +22,8 @@ deactivateEditMode=()=>{
 
 onStatusChange=(e)=>{
   this.setState({
- status: e.currentTarget.value});
+ status: e.currentTarget.value
+});
 }
 
 componentDidUpdate(prevProps,prevState){
@@ -34,7 +35,7 @@ status:this.props.status
 }
 
   render() {
-
+console.log('render')
     return (
     <div>
             { !this.state.editMode &&
