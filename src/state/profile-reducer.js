@@ -44,28 +44,23 @@ export const addTextCreator = (addNewText) => ({ type: ADD_TEXT,addNewText });
 export const setUserProfile=(profile)=>({type:"SET_USER_PROFILE",profile});
 export const setUserStatus=(status)=>({type:"SET_USER_STATUS",status});
 
-export const getUsersProfile=(userId)=>(dispatch)=>{
-  usersAPI.getProfile(userId)
-      .then((response) => {
+export const getUsersProfile=(userId)=>async(dispatch)=>{
+ let response=await usersAPI.getProfile(userId)
         dispatch(setUserProfile(response.data));
-      });
-}
-export const getUserStatus=(userId)=>(dispatch)=>{
-  profileAPI.getStatus(userId)
-      .then((response) => {
-        
-        dispatch(setUserStatus(response.data));
-      });
-    }
+      };
 
-    export const updateStatus=(status)=>(dispatch)=>{
-      profileAPI.updateStatus(status)
-          .then((response) => {
+export const getUserStatus=(userId)=>async(dispatch)=>{
+ let response= await profileAPI.getStatus(userId)       
+        dispatch(setUserStatus(response.data));
+      };
+
+    export const updateStatus=(status)=>async(dispatch)=>{
+     let response = await profileAPI.updateStatus(status)
             if(response.data.resultCode===0){
             dispatch(setUserStatus(status));
           }
-          });
-        }
+          };
+        
 
 
 export default profileReducer;
