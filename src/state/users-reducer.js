@@ -117,27 +117,30 @@ export const getUsers=(page,pageSize)=>{
   };
 }
 
+const followUnfollowFlow =async(dispatch,userId,apiMethod,
+  actionCreator)=>{
+    dispatch(toggleFollowingProgress(true,userId));
+   let response =  await apiMethod(userId)     
+    if(response.data.resultCode==0){
+      dispatch(actionCreator(userId));   
+   }
+    dispatch(toggleFollowingProgress(false,userId));
+  }
+
 
 export const follow=(userId)=>{
   return async(dispatch)=>{
-    dispatch(toggleFollowingProgress(true,userId));
-   let response =  await usersAPI.follow(userId)     
-    if(response.data.resultCode==0){
-      dispatch(followSucces(userId));   
-    }
-    dispatch(toggleFollowingProgress(false,userId));
+    let apiMethod=usersAPI.follow.bind(usersAPI);
+    let actionCreator=followSucces;
+ followUnfollowFlow(dispatch,userId,apiMethod,actionCreator);
+}
   }
-  }
-
 
 export const unfollow=(userId)=>{
   return async(dispatch)=>{
-    dispatch(toggleFollowingProgress(true,userId));
-   let response = await usersAPI.unfollow(userId)        
-    if(response.data.resultCode==0){
-      dispatch(unfollowSucces(userId));   
-    }
-    dispatch(toggleFollowingProgress(false,userId));
+    let apiMethod=usersAPI.unfollow.bind(usersAPI);
+    let actionCreator=unfollowSucces;
+    followUnfollowFlow(dispatch,userId,apiMethod,actionCreator);
   }
   }
 
