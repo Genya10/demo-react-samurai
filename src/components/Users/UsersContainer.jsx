@@ -38,17 +38,6 @@ return <>
 }
 }
 
-/*let mapStateToProps=(state)=>{
-  return{    
-    users:state.usersPage.users,
-    pageSize:state.usersPage.pageSize,
-    totalUsersCount:state.usersPage.totalUsersCount,
-    currentPage:state.usersPage.currentPage,
-   followingInProgress:state.usersPage.followingInProgress,
-    //isFetching:state.userPage.isFetching,
-  }
-}*/
-
 let mapStateToProps=(state)=>{
   return{    
     users:getUsersSelector(state),

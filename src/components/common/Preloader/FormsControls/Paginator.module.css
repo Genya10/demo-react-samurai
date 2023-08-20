@@ -1,0 +1,18 @@
+
+.selectedPage{
+    font-weight: 700;
+    cursor: pointer;
+}
+.pages{
+    margin: 10px;
+}
+.page{
+    padding:3px;
+    cursor: pointer;
+    border: 1px solid;
+    border-radius: 8px;
+    margin-left: 3px;
+}
+.page:hover{
+    background-color: rgba(72, 255, 0, 0.404);
+}

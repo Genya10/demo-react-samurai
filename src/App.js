@@ -6,7 +6,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Setting from "./components/Setting/Setting";
 import UsersContainer from "./components/Users/UsersContainer";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import MainContainer from "./components/Main/Main Container";
 import Login from "./components/Login/Login";
@@ -25,7 +25,6 @@ class App extends Component {
       return <div>Preloader</div>
     }
   return (
-    <BrowserRouter>
       <div className="app-wrapper">
         <HeaderContainer />
         <Sidebar />
@@ -42,7 +41,6 @@ class App extends Component {
           </Routes>
         </div>
       </div>
-    </BrowserRouter>
   );
 }
 }
