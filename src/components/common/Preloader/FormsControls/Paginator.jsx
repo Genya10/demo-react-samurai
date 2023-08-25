@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { getCurrentPage } from "../../../../state/selectorsUsers";
 import cl from "./Paginator.module.css";
+import cn from "classnames";
 
 let Paginator=({totalUsersCount,pageSize,currentPage,onPageChanged,portionSize=10})=>{
 
