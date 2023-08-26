@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Main from "./Main";
 import { connect } from "react-redux";
-import { getUsersProfile,getUserStatus,updateStatus,savePhoto } from "../../state/profile-reducer";
+import { getUsersProfile,getUserStatus,updateStatus,savePhoto,saveProfile } from "../../state/profile-reducer";
 //import { withAuthNavigate } from "../hoc/withAuthNavigate";
 import { useParams } from "react-router-dom";
 import { compose } from "redux";
@@ -57,15 +57,9 @@ let mapStateToProps = (state) => ( {
 });
 
 export default compose(
-  connect(mapStateToProps, { getUsersProfile,getUserStatus,updateStatus,savePhoto }),
+  connect(mapStateToProps, { getUsersProfile,getUserStatus,updateStatus,savePhoto,saveProfile }),
 withRouter)(MainContainer);
- 
-//let AuthNavigateComponent = withAuthNavigate(MainContainer);
-//let WithUrlDataContainerComponent = withRouter(AuthNavigateComponent);
 
-/*export default compose(
-  connect(mapStateToProps, { getUsersProfile,getUserStatus,updateStatus }),
-withAuthNavigate)(WithUrlDataContainerComponent);*/
 
 
 

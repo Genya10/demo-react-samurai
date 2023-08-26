@@ -8,3 +8,11 @@
 .contact{
     padding-left: 10px;
 }
+.formError{
+    width: 400px;
+    border: 2px solid red;
+    padding: 3px;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+}
