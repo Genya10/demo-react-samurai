@@ -18,7 +18,7 @@ const ProfileDataForm=({handleSubmit,profile,error})=>{
         {createField('','lookingForAJob',[],Input,{type:'checkbox'})}
        </div>
        <div>
-        <b>My professional skills</b>:{profile.lookingForAJobDescription}
+        <b>My professional skills</b>:
         {createField('My professional skills','lookingForAJobDescription',[],Textarea)}
        </div>
        <div>
