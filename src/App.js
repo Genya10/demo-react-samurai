@@ -15,11 +15,20 @@ import { connect } from "react-redux";
 import { withRouter } from "./components/Main/Main Container";
 import { compose } from "redux";
 import { initializeApp } from "./state/app-reducer";
+import { Navigate } from "react-router-dom";
 
 class App extends Component {
+  catchAllUnhandledErrors=(reason,promise)=>{
+  alert('Some error');
+  }
   componentDidMount(){
     this.props.initializeApp();
-}
+   /* window.addEventListener("unhandledrejection",this.catchAllUnhandledErrors);*/
+  }
+ /* componentWillUnmount(){
+  window.removeEventListener("unhandledrejection",this.catchAllUnhandledErrors);
+}*/
+
   render(){
     if(!this.props.initializer){
       return <div>Loading...</div>
@@ -31,6 +40,7 @@ class App extends Component {
         <div className="app-content">
           <Suspense fallback={<div>Loading</div>}>
           <Routes>            
+            <Route exact path="/" element= {<Navigate to="/profile"/>}/>
             <Route path="/profile/*" element={<MainContainer />} />
             <Route path={"profile/:userId"} element={<MainContainer />} />
             <Route path="/dialogs/*" element={<DialogsContainer />}/>                                     
@@ -39,6 +49,7 @@ class App extends Component {
             <Route path="/setting" element={<Setting />} />
             <Route path="/users" element={<UsersContainer/>}/>
             <Route path="/login" element={<Login/>}/>
+            <Route path="*" element={<div>404 NOT FOUND</div>}/>
           </Routes>
           </Suspense>
         </div>

@@ -55,7 +55,7 @@ let rightPortionNumber = portionNumber*portionSize;*/
 
    return(
         <div>
-        <div className={cl.pages}>
+        <div className={cn(cl.pages,cl.pagesCount)}>
         {pages.map( p => {
           return <span className={cl.page}><span className={currentPage === p && cl.selectedPage}
            onClick={ (e) => {onPageChanged(p)}}>{p}</span></span>       
